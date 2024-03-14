@@ -26,3 +26,4 @@ Route::get('logout', [App\Http\Controllers\AuthController::class, 'logout']);
 Route::get('user', [App\Http\Controllers\AuthController::class, 'getAuthUser']);
 
 
+Route::resource('carros', App\Http\Controllers\CarroController::class);
