@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Componente;
-use App\Http\Requests\StoreComponenteRequest;
-use App\Http\Requests\UpdateComponenteRequest;
+use App\Models\Motor;
+use App\Http\Requests\StoreMotorRequest;
+use App\Http\Requests\UpdateMotorRequest;
 
-class ComponenteController extends Controller
+class MotorController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        return Motor::with('carro')->get();
     }
 
     /**
@@ -27,7 +27,7 @@ class ComponenteController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreComponenteRequest $request)
+    public function store(StoreMotorRequest $request)
     {
         //
     }
@@ -35,7 +35,7 @@ class ComponenteController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Componente $componente)
+    public function show(Motor $motor)
     {
         //
     }
@@ -43,7 +43,7 @@ class ComponenteController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Componente $componente)
+    public function edit(Motor $motor)
     {
         //
     }
@@ -51,7 +51,7 @@ class ComponenteController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateComponenteRequest $request, Componente $componente)
+    public function update(UpdateMotorRequest $request, Motor $motor)
     {
         //
     }
@@ -59,7 +59,7 @@ class ComponenteController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Componente $componente)
+    public function destroy(Motor $motor)
     {
         //
     }

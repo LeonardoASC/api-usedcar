@@ -16,8 +16,8 @@ class Carro extends Model
         'numero_portas'
     ];
 
-    public function componentes()
+    public function motor()
     {
-        return $this->belongsToMany(Componente::class, 'carro_componente');
+        return $this->hasMany(Motor::class);
     }
 }

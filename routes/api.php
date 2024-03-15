@@ -27,3 +27,4 @@ Route::get('user', [App\Http\Controllers\AuthController::class, 'getAuthUser']);
 
 
 Route::resource('carros', App\Http\Controllers\CarroController::class);
+Route::resource('motores', App\Http\Controllers\MotorController::class);
