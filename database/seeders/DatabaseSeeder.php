@@ -16,5 +16,8 @@ class DatabaseSeeder extends Seeder
         $this->call(AdminUserSeeder::class);
         $this->call(CarroSeeder::class);
         $this->call(MotorSeeder::class);
+        $this->call(DocumentoSeeder::class);
+        $this->call(LatariaSeeder::class);
+        $this->call(PneuSeeder::class);
     }
 }

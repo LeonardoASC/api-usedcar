@@ -23,11 +23,11 @@ class CarroSeeder extends Seeder
         // $table->timestamps();
         $carros = [
             [
-                'marca' => 'Fiat',
-                'modelo' => 'Uno',
-                'ano' => '2020',
-                'tipo_carroceria' => 'Hatch',
-                'numero_portas' => '4'
+                'marca' => 'Todos',
+                'modelo' => 'Todos',
+                'ano' => '0',
+                'tipo_carroceria' => 'Todos',
+                'numero_portas' => '2 e 4'
             ],
             [
                 'marca' => 'Fiat',
