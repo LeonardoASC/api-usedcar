@@ -32,4 +32,12 @@ class Carro extends Model
     {
         return $this->hasMany(Documento::class);
     }
+    public function freio()
+    {
+        return $this->hasMany(Documento::class);
+    }
+    public function suspensao()
+    {
+        return $this->hasMany(Documento::class);
+    }
 }

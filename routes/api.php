@@ -31,3 +31,5 @@ Route::resource('motores', App\Http\Controllers\MotorController::class);
 Route::resource('latarias', App\Http\Controllers\LatariaController::class);
 Route::resource('pneus', App\Http\Controllers\PneuController::class);
 Route::resource('documentos', App\Http\Controllers\DocumentoController::class);
+Route::resource('freios', App\Http\Controllers\FreioController::class);
+Route::resource('suspensoes', App\Http\Controllers\SuspensaoController::class);

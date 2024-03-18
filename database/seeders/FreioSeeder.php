@@ -4,36 +4,36 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Pneu;
+use App\Models\Freio;
 
-class PneuSeeder extends Seeder
+class FreioSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        $pneus = [
+        $freios = [
             [
                 'carro_id' => 1,
                 'foto' => 'https://via.placeholder.com/150',
-                'descricao' => 'Descrição do Pneus',
+                'descricao' => 'Descrição da freios',
             ],
             [
                 'carro_id' => 2,
                 'foto' => 'https://via.placeholder.com/150',
-                'descricao' => 'Descrição do Pneus',
+                'descricao' => 'Descrição da freios',
             ],
             [
                 'carro_id' => 3,
                 'foto' => 'https://via.placeholder.com/150',
-                'descricao' => 'Descrição do Pneus',
+                'descricao' => 'Descrição da freios',
             ],
 
         ];
 
-        foreach ($pneus as $pneu) {
-            Pneu::create($pneu);
+        foreach ($freios as $freio) {
+            Freio::create($freio);
         }
     }
 }

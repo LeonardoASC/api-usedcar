@@ -19,5 +19,7 @@ class DatabaseSeeder extends Seeder
         $this->call(DocumentoSeeder::class);
         $this->call(LatariaSeeder::class);
         $this->call(PneuSeeder::class);
+        $this->call(FreioSeeder::class);
+        $this->call(SuspensaoSeeder::class);
     }
 }
