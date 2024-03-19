@@ -34,3 +34,4 @@ Route::resource('documentos', App\Http\Controllers\DocumentoController::class);
 Route::resource('freios', App\Http\Controllers\FreioController::class);
 Route::resource('suspensoes', App\Http\Controllers\SuspensaoController::class);
 Route::resource('embreagens', App\Http\Controllers\EmbreagemController::class);
+Route::resource('sistemas_eletricos', App\Http\Controllers\SistemaEletricoController::class);

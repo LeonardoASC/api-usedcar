@@ -22,5 +22,6 @@ class DatabaseSeeder extends Seeder
         $this->call(FreioSeeder::class);
         $this->call(SuspensaoSeeder::class);
         $this->call(EmbreagemSeeder::class);
+        $this->call(SistemaEletricoSeeder::class);
     }
 }

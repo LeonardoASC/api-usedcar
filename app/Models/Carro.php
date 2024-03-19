@@ -40,4 +40,8 @@ class Carro extends Model
     {
         return $this->hasMany(Documento::class);
     }
+    public function embreagem()
+    {
+        return $this->hasMany(Documento::class);
+    }
 }

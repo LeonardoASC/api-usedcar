@@ -4,36 +4,36 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Suspensao;
+use App\Models\SistemaEletrico;
 
-class SuspensaoSeeder extends Seeder
+class SistemaEletricoSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        $suspensoes = [
+        $sistemaseletricos = [
             [
                 'carro_id' => 1,
                 'foto' => 'https://via.placeholder.com/150',
-                'descricao' => 'Descrição do suspensao',
+                'descricao' => 'Descrição do SistemaEletrico',
             ],
             [
                 'carro_id' => 2,
                 'foto' => 'https://via.placeholder.com/150',
-                'descricao' => 'Descrição do suspensao',
+                'descricao' => 'Descrição do SistemaEletrico',
             ],
             [
                 'carro_id' => 3,
                 'foto' => 'https://via.placeholder.com/150',
-                'descricao' => 'Descrição do suspensao',
+                'descricao' => 'Descrição do SistemaEletrico',
             ],
 
         ];
 
-        foreach ($suspensoes as $suspensao) {
-            Suspensao::create($suspensao);
+        foreach ($sistemaseletricos as $sistemaeletrico) {
+            SistemaEletrico::create($sistemaeletrico);
         }
     }
 }
