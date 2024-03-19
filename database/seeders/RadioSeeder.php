@@ -17,17 +17,22 @@ class RadioSeeder extends Seeder
             [
                 'carro_id' => 1,
                 'foto' => 'https://via.placeholder.com/150',
-                'descricao' => 'Descrição do radios',
+                'descricao' => 'Descrição do radios1',
             ],
             [
                 'carro_id' => 2,
                 'foto' => 'https://via.placeholder.com/150',
-                'descricao' => 'Descrição do radios',
+                'descricao' => 'Descrição do radios2',
             ],
             [
                 'carro_id' => 3,
                 'foto' => 'https://via.placeholder.com/150',
-                'descricao' => 'Descrição do radios',
+                'descricao' => 'Descrição do radios3',
+            ],
+            [
+                'carro_id' => 1,
+                'foto' => 'https://via.placeholder.com/150',
+                'descricao' => 'Descrição do radios3',
             ],
 
         ];

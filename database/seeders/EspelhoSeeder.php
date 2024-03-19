@@ -17,17 +17,17 @@ class EspelhoSeeder extends Seeder
             [
                 'carro_id' => 1,
                 'foto' => 'https://via.placeholder.com/150',
-                'descricao' => 'Descrição do espelhos',
+                'descricao' => 'Descrição do espelhos1',
             ],
             [
                 'carro_id' => 2,
                 'foto' => 'https://via.placeholder.com/150',
-                'descricao' => 'Descrição do espelhos',
+                'descricao' => 'Descrição do espelhos2',
             ],
             [
                 'carro_id' => 3,
                 'foto' => 'https://via.placeholder.com/150',
-                'descricao' => 'Descrição do espelhos',
+                'descricao' => 'Descrição do espelhos3',
             ],
 
         ];

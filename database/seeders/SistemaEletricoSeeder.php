@@ -17,17 +17,17 @@ class SistemaEletricoSeeder extends Seeder
             [
                 'carro_id' => 1,
                 'foto' => 'https://via.placeholder.com/150',
-                'descricao' => 'Descrição do SistemaEletrico',
+                'descricao' => 'Descrição do SistemaEletrico1',
             ],
             [
                 'carro_id' => 2,
                 'foto' => 'https://via.placeholder.com/150',
-                'descricao' => 'Descrição do SistemaEletrico',
+                'descricao' => 'Descrição do SistemaEletrico2',
             ],
             [
                 'carro_id' => 3,
                 'foto' => 'https://via.placeholder.com/150',
-                'descricao' => 'Descrição do SistemaEletrico',
+                'descricao' => 'Descrição do SistemaEletrico3',
             ],
 
         ];

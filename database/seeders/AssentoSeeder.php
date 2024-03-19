@@ -17,17 +17,17 @@ class AssentoSeeder extends Seeder
             [
                 'carro_id' => 1,
                 'foto' => 'https://via.placeholder.com/150',
-                'descricao' => 'Descrição do assentos',
+                'descricao' => 'Descrição do assentos1',
             ],
             [
                 'carro_id' => 2,
                 'foto' => 'https://via.placeholder.com/150',
-                'descricao' => 'Descrição do assentos',
+                'descricao' => 'Descrição do assentos2',
             ],
             [
                 'carro_id' => 3,
                 'foto' => 'https://via.placeholder.com/150',
-                'descricao' => 'Descrição do assentos',
+                'descricao' => 'Descrição do assentos3',
             ],
 
         ];

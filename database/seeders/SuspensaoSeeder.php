@@ -17,17 +17,17 @@ class SuspensaoSeeder extends Seeder
             [
                 'carro_id' => 1,
                 'foto' => 'https://via.placeholder.com/150',
-                'descricao' => 'Descrição do suspensao',
+                'descricao' => 'Descrição do suspensao1',
             ],
             [
                 'carro_id' => 2,
                 'foto' => 'https://via.placeholder.com/150',
-                'descricao' => 'Descrição do suspensao',
+                'descricao' => 'Descrição do suspensao2',
             ],
             [
                 'carro_id' => 3,
                 'foto' => 'https://via.placeholder.com/150',
-                'descricao' => 'Descrição do suspensao',
+                'descricao' => 'Descrição do suspensao3',
             ],
 
         ];

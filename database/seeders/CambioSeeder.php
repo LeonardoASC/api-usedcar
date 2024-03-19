@@ -17,17 +17,17 @@ class CambioSeeder extends Seeder
             [
                 'carro_id' => 1,
                 'foto' => 'https://via.placeholder.com/150',
-                'descricao' => 'Descrição do cambios',
+                'descricao' => 'Descrição do cambios1',
             ],
             [
                 'carro_id' => 2,
                 'foto' => 'https://via.placeholder.com/150',
-                'descricao' => 'Descrição do cambios',
+                'descricao' => 'Descrição do cambios2',
             ],
             [
                 'carro_id' => 3,
                 'foto' => 'https://via.placeholder.com/150',
-                'descricao' => 'Descrição do cambios',
+                'descricao' => 'Descrição do cambios3',
             ],
 
         ];
