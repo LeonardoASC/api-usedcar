@@ -33,3 +33,4 @@ Route::resource('pneus', App\Http\Controllers\PneuController::class);
 Route::resource('documentos', App\Http\Controllers\DocumentoController::class);
 Route::resource('freios', App\Http\Controllers\FreioController::class);
 Route::resource('suspensoes', App\Http\Controllers\SuspensaoController::class);
+Route::resource('embreagens', App\Http\Controllers\EmbreagemController::class);
