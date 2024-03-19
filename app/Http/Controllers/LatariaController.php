@@ -37,7 +37,8 @@ class LatariaController extends Controller
      */
     public function show(Lataria $lataria)
     {
-        //
+        $lataria->load('carro');
+        return $lataria;
     }
 
     /**

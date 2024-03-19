@@ -37,7 +37,8 @@ class SistemaEletricoController extends Controller
      */
     public function show(SistemaEletrico $sistemaEletrico)
     {
-        //
+        $sistemaEletrico->load('carro');
+        return $sistemaEletrico;
     }
 
     /**

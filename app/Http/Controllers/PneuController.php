@@ -37,7 +37,8 @@ class PneuController extends Controller
      */
     public function show(Pneu $pneu)
     {
-        //
+        $pneu->load('carro');
+        return $pneu;
     }
 
     /**

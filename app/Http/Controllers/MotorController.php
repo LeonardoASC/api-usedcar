@@ -37,7 +37,8 @@ class MotorController extends Controller
      */
     public function show(Motor $motor)
     {
-        //
+        $motor->load('carro');
+        return $motor;
     }
 
     /**

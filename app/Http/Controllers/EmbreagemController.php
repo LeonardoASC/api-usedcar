@@ -37,7 +37,8 @@ class EmbreagemController extends Controller
      */
     public function show(Embreagem $embreagem)
     {
-        //
+        $embreagem->load('carro');
+        return $embreagem;
     }
 
     /**

@@ -2,19 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Carro;
-use App\Http\Requests\StoreCarroRequest;
-use App\Http\Requests\UpdateCarroRequest;
+use App\Models\Acessorio;
+use App\Http\Requests\StoreAcessorioRequest;
+use App\Http\Requests\UpdateAcessorioRequest;
 
-class CarroController extends Controller
+class AcessorioController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //mostrar todos os carros
-        return Carro::all();
+        return Acessorio::with('carro')->get();
     }
 
     /**
@@ -28,7 +27,7 @@ class CarroController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreCarroRequest $request)
+    public function store(StoreAcessorioRequest $request)
     {
         //
     }
@@ -36,16 +35,17 @@ class CarroController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Carro $carro)
+    public function show(Acessorio $acessorio)
     {
-        $carro->load('motor', 'lataria', 'pneu', 'documento', 'freio', 'suspensao', 'embreagem', 'sistema_eletrico', 'pedal', 'cambio', 'vidro');
-        return $carro;
+        $acessorio->load('carro');
+        return $acessorio;
+
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Carro $carro)
+    public function edit(Acessorio $acessorio)
     {
         //
     }
@@ -53,7 +53,7 @@ class CarroController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateCarroRequest $request, Carro $carro)
+    public function update(UpdateAcessorioRequest $request, Acessorio $acessorio)
     {
         //
     }
@@ -61,7 +61,7 @@ class CarroController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Carro $carro)
+    public function destroy(Acessorio $acessorio)
     {
         //
     }

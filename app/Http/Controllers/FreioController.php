@@ -37,7 +37,8 @@ class FreioController extends Controller
      */
     public function show(Freio $freio)
     {
-        //
+        $freio->load('carro');
+        return $freio;
     }
 
     /**

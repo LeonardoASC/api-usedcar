@@ -2,19 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Carro;
-use App\Http\Requests\StoreCarroRequest;
-use App\Http\Requests\UpdateCarroRequest;
+use App\Models\ArCondicionado;
+use App\Http\Requests\StoreArCondicionadoRequest;
+use App\Http\Requests\UpdateArCondicionadoRequest;
 
-class CarroController extends Controller
+class ArCondicionadoController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //mostrar todos os carros
-        return Carro::all();
+        return ArCondicionado::with('carro')->get();
     }
 
     /**
@@ -28,7 +27,7 @@ class CarroController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreCarroRequest $request)
+    public function store(StoreArCondicionadoRequest $request)
     {
         //
     }
@@ -36,16 +35,16 @@ class CarroController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Carro $carro)
+    public function show(ArCondicionado $arCondicionado)
     {
-        $carro->load('motor', 'lataria', 'pneu', 'documento', 'freio', 'suspensao', 'embreagem', 'sistema_eletrico', 'pedal', 'cambio', 'vidro');
-        return $carro;
+        $arCondicionado->load('carro');
+        return $arCondicionado;
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Carro $carro)
+    public function edit(ArCondicionado $arCondicionado)
     {
         //
     }
@@ -53,7 +52,7 @@ class CarroController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateCarroRequest $request, Carro $carro)
+    public function update(UpdateArCondicionadoRequest $request, ArCondicionado $arCondicionado)
     {
         //
     }
@@ -61,7 +60,7 @@ class CarroController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Carro $carro)
+    public function destroy(ArCondicionado $arCondicionado)
     {
         //
     }

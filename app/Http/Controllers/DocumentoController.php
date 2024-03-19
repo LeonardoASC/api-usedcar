@@ -37,7 +37,8 @@ class DocumentoController extends Controller
      */
     public function show(Documento $documento)
     {
-        //
+        $documento->load('carro');
+        return $documento;
     }
 
     /**

@@ -23,5 +23,16 @@ class DatabaseSeeder extends Seeder
         $this->call(SuspensaoSeeder::class);
         $this->call(EmbreagemSeeder::class);
         $this->call(SistemaEletricoSeeder::class);
+        $this->call(PedalSeeder::class);
+        $this->call(CambioSeeder::class);
+        $this->call(VidroSeeder::class);
+        $this->call(AssentoSeeder::class);
+        $this->call(AcessorioSeeder::class);
+        $this->call(EspelhoSeeder::class);
+        $this->call(FarolSeeder::class);
+        $this->call(RadioSeeder::class);
+        $this->call(ArCondicionadoSeeder::class);
+
+
     }
 }

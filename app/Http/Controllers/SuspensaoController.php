@@ -37,7 +37,8 @@ class SuspensaoController extends Controller
      */
     public function show(Suspensao $suspensao)
     {
-        //
+        $suspensao->load('carro');
+        return $suspensao;
     }
 
     /**

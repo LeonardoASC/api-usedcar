@@ -27,6 +27,7 @@ Route::get('user', [App\Http\Controllers\AuthController::class, 'getAuthUser']);
 
 
 Route::resource('carros', App\Http\Controllers\CarroController::class);
+
 Route::resource('motores', App\Http\Controllers\MotorController::class);
 Route::resource('latarias', App\Http\Controllers\LatariaController::class);
 Route::resource('pneus', App\Http\Controllers\PneuController::class);
@@ -35,3 +36,14 @@ Route::resource('freios', App\Http\Controllers\FreioController::class);
 Route::resource('suspensoes', App\Http\Controllers\SuspensaoController::class);
 Route::resource('embreagens', App\Http\Controllers\EmbreagemController::class);
 Route::resource('sistemas_eletricos', App\Http\Controllers\SistemaEletricoController::class);
+Route::resource('pedais', App\Http\Controllers\PedalController::class);
+Route::resource('cambios', App\Http\Controllers\CambioController::class);
+Route::resource('vidros', App\Http\Controllers\VidroController::class);
+Route::resource('assentos', App\Http\Controllers\AssentoController::class);
+Route::resource('acessorios', App\Http\Controllers\AcessorioController::class);
+Route::resource('espelhos', App\Http\Controllers\EspelhoController::class);
+Route::resource('farois', App\Http\Controllers\FarolController::class);
+Route::resource('radios', App\Http\Controllers\RadioController::class);
+Route::resource('ares_condicionados', App\Http\Controllers\ArCondicionadoController::class);
+
+

@@ -2,19 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Carro;
-use App\Http\Requests\StoreCarroRequest;
-use App\Http\Requests\UpdateCarroRequest;
+use App\Models\Vidro;
+use App\Http\Requests\StoreVidroRequest;
+use App\Http\Requests\UpdateVidroRequest;
 
-class CarroController extends Controller
+class VidroController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //mostrar todos os carros
-        return Carro::all();
+
+        return Vidro::with('carro')->get();
     }
 
     /**
@@ -28,7 +28,7 @@ class CarroController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreCarroRequest $request)
+    public function store(StoreVidroRequest $request)
     {
         //
     }
@@ -36,16 +36,16 @@ class CarroController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Carro $carro)
+    public function show(Vidro $vidro)
     {
-        $carro->load('motor', 'lataria', 'pneu', 'documento', 'freio', 'suspensao', 'embreagem', 'sistema_eletrico', 'pedal', 'cambio', 'vidro');
-        return $carro;
+        $vidro->load('carro');
+        return $vidro;
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Carro $carro)
+    public function edit(Vidro $vidro)
     {
         //
     }
@@ -53,7 +53,7 @@ class CarroController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateCarroRequest $request, Carro $carro)
+    public function update(UpdateVidroRequest $request, Vidro $vidro)
     {
         //
     }
@@ -61,7 +61,7 @@ class CarroController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Carro $carro)
+    public function destroy(Vidro $vidro)
     {
         //
     }
