@@ -13,7 +13,7 @@ class CarroSeeder extends Seeder
      */
     public function run(): void
     {
-        
+
         $carros = [
             [
                 'marca' => 'Todos',
@@ -31,7 +31,7 @@ class CarroSeeder extends Seeder
                 'ano' => '2020',
                 'tipo_carroceria' => 'Hatch',
                 'numero_portas' => '4',
-                'km_litro' => 12.34,
+                'km_litro' => 11.34,
                 'tabela_fipe' => 45000.00,
                 'media_avaliacao' => 4.5,
             ],
@@ -41,7 +41,7 @@ class CarroSeeder extends Seeder
                 'ano' => '2020',
                 'tipo_carroceria' => 'Picape',
                 'numero_portas' => '4',
-                'km_litro' => 12.34,
+                'km_litro' => 13.34,
                 'tabela_fipe' => 45000.00,
                 'media_avaliacao' => 4.5,
             ],
@@ -51,7 +51,7 @@ class CarroSeeder extends Seeder
                 'ano' => '2020',
                 'tipo_carroceria' => 'Picape',
                 'numero_portas' => '2',
-                'km_litro' => 12.34,
+                'km_litro' => 14.34,
                 'tabela_fipe' => 45000.00,
                 'media_avaliacao' => 4.5,
             ],
@@ -81,7 +81,7 @@ class CarroSeeder extends Seeder
                 'ano' => '2020',
                 'tipo_carroceria' => 'Sedan',
                 'numero_portas' => '4',
-                'km_litro' => 12.34,
+                'km_litro' => 11.14,
                 'tabela_fipe' => 45000.00,
                 'media_avaliacao' => 4.5,
             ],
@@ -91,7 +91,7 @@ class CarroSeeder extends Seeder
                 'ano' => '2020',
                 'tipo_carroceria' => 'Minivan',
                 'numero_portas' => '4',
-                'km_litro' => 12.34,
+                'km_litro' => 10.34,
                 'tabela_fipe' => 45000.00,
                 'media_avaliacao' => 4.5,
             ],

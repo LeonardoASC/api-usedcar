@@ -25,8 +25,8 @@ Route::post('login', [App\Http\Controllers\AuthController::class, 'login']);
 Route::get('logout', [App\Http\Controllers\AuthController::class, 'logout']);
 Route::get('user', [App\Http\Controllers\AuthController::class, 'getAuthUser']);
 
-
 Route::resource('carros', App\Http\Controllers\CarroController::class);
+Route::get('carrosfuel', [App\Http\Controllers\CarroController::class, 'indexFuel']);
 
 Route::resource('motores', App\Http\Controllers\MotorController::class);
 Route::resource('latarias', App\Http\Controllers\LatariaController::class);
