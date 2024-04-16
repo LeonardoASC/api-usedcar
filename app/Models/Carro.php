@@ -13,7 +13,11 @@ class Carro extends Model
         'modelo',
         'ano',
         'tipo_carroceria',
-        'numero_portas'
+        'numero_portas',
+        'km_litro',
+        'tabela_fipe',
+        'media_avaliacao',
+
     ];
 
     public function motor()
