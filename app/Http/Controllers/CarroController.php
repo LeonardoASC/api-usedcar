@@ -24,7 +24,7 @@ class CarroController extends Controller
     {
         return Carro::orderBy('km_litro', 'asc')->get();
     }
-    
+
     /**
      * Display a listing of the resource.
      */
