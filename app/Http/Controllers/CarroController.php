@@ -16,11 +16,21 @@ class CarroController extends Controller
         //mostrar todos os carros
         return Carro::all();
     }
-    
+
+    /**
+     * Display a listing of the resource.
+     */
     public function indexFuel()
     {
-        //mostrar todos os carros
         return Carro::orderBy('km_litro', 'asc')->get();
+    }
+    
+    /**
+     * Display a listing of the resource.
+     */
+    public function indexFipe()
+    {
+        return Carro::orderBy('tabela_fipe', 'asc')->get();
     }
 
     /**

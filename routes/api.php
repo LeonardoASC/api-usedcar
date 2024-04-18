@@ -27,6 +27,7 @@ Route::get('user', [App\Http\Controllers\AuthController::class, 'getAuthUser']);
 
 Route::resource('carros', App\Http\Controllers\CarroController::class);
 Route::get('carrosfuel', [App\Http\Controllers\CarroController::class, 'indexFuel']);
+Route::get('carrosfipe', [App\Http\Controllers\CarroController::class, 'indexFipe']);
 
 Route::resource('motores', App\Http\Controllers\MotorController::class);
 Route::resource('latarias', App\Http\Controllers\LatariaController::class);
