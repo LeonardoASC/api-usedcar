@@ -24,6 +24,10 @@ class Carro extends Model
     {
         return $this->hasMany(Motor::class);
     }
+    public function arcondicionado()
+    {
+        return $this->hasMany(ArCondicionado::class);
+    }
     public function lataria()
     {
         return $this->hasMany(Lataria::class);

@@ -26,6 +26,8 @@ Route::get('logout', [App\Http\Controllers\AuthController::class, 'logout']);
 Route::get('user', [App\Http\Controllers\AuthController::class, 'getAuthUser']);
 
 Route::resource('carros', App\Http\Controllers\CarroController::class);
+Route::resource('checklist', App\Http\Controllers\CheckListController::class);
+
 Route::get('carrosfuel', [App\Http\Controllers\CarroController::class, 'indexFuel']);
 Route::get('carrosfipe', [App\Http\Controllers\CarroController::class, 'indexFipe']);
 
