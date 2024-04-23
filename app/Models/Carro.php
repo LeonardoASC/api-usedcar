@@ -17,78 +17,73 @@ class Carro extends Model
         'km_litro',
         'tabela_fipe',
         'media_avaliacao',
-
     ];
 
-    public function motor()
+    public function acessorio()
     {
-        return $this->hasMany(Motor::class);
+        return $this->hasMany(Acessorio::class);
     }
     public function arcondicionado()
     {
         return $this->hasMany(ArCondicionado::class);
     }
-    public function lataria()
+    public function assento()
     {
-        return $this->hasMany(Lataria::class);
-    }
-    public function pneu()
-    {
-        return $this->hasMany(Pneu::class);
-    }
-    public function documento()
-    {
-        return $this->hasMany(Documento::class);
-    }
-    public function freio()
-    {
-        return $this->hasMany(Freio::class);
-    }
-    public function suspensao()
-    {
-        return $this->hasMany(Suspensao::class);
-    }
-    public function embreagem()
-    {
-        return $this->hasMany(Embreagem::class);
-    }
-    public function sistema_eletrico()
-    {
-        return $this->hasMany(SistemaEletrico::class);
-    }
-    public function pedal()
-    {
-        return $this->hasMany(Pedal::class);
+        return $this->hasMany(Assento::class);
     }
     public function cambio()
     {
         return $this->hasMany(Cambio::class);
     }
-    public function vidro()
+    public function documento()
     {
-        return $this->hasMany(Vidro::class);
+        return $this->hasMany(Documento::class);
     }
-    public function acessorio()
+    public function embreagem()
     {
-        return $this->hasMany(Vidro::class);
+        return $this->hasMany(Embreagem::class);
     }
-    public function ar_condicionado()
+    public function espelho()
     {
-        return $this->hasMany(Vidro::class);
-    }
-    public function assento()
-    {
-        return $this->hasMany(Vidro::class);
-    }
-    public function radio()
-    {
-        return $this->hasMany(Vidro::class);
+        return $this->hasMany(Espelho::class);
     }
     public function farol()
     {
-        return $this->hasMany(Vidro::class);
+        return $this->hasMany(Farol::class);
     }
-    public function espelho()
+    public function freio()
+    {
+        return $this->hasMany(Freio::class);
+    }
+    public function lataria()
+    {
+        return $this->hasMany(Lataria::class);
+    }
+    public function motor()
+    {
+        return $this->hasMany(Motor::class);
+    }
+    public function pedal()
+    {
+        return $this->hasMany(Pedal::class);
+    }
+    public function pneu()
+    {
+        return $this->hasMany(Pneu::class);
+    }
+    public function radio()
+    {
+        return $this->hasMany(Radio::class);
+    }
+    public function sistema_eletrico()
+    {
+        return $this->hasMany(SistemaEletrico::class);
+    }
+    public function suspensao()
+    {
+        return $this->hasMany(Suspensao::class);
+    }
+    public function vidro()
     {
         return $this->hasMany(Vidro::class);
     }

@@ -60,20 +60,20 @@ class CarroController extends Controller
         'acessorio',
         'arcondicionado',
         'assento',
+        'cambio',
+        'documento',
+        'embreagem',
         'espelho',
         'farol',
+        'freio',
         'lataria',
         'motor',
+        'pedal',
         'pneu',
         'radio',
-        'documento',
-        'freio',
+        'sistema_eletrico',
         'suspensao',
-        'embreagem',
-        'pedal',
-        'cambio',
         'vidro',
-        'sistema_eletrico'
     );
         return $carro;
     }
