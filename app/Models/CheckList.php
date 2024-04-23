@@ -9,28 +9,36 @@ use App\Models\Carro;
 class CheckList extends Model
 {
     use HasFactory;
+    protected $table = 'check_lists';
     protected $fillable = [
         'carro_id',
-        'motor', 'lataria', 'pneu', 'documento', 'freio',
-        'suspensao', 'embreagem', 'pedal', 'cambio', 'vidro', 'sistema_eletrico'
+        'acessorio', 'arcondicionado', 'assento', 'cambio', 'documento',
+        'embreagem', 'espelho', 'farol', 'freio', 'lataria', 'motor',
+        'pedal', 'pneu', 'radio', 'sistema_eletrico', 'suspensao', 'vidro'
     ];
 
-    protected $casts = [
-        'motor' => 'boolean',
-        'lataria' => 'boolean',
-        'pneu' => 'boolean',
-        'documento' => 'boolean',
-        'freio' => 'boolean',
-        'suspensao' => 'boolean',
-        'embreagem' => 'boolean',
-        'pedal' => 'boolean',
-        'cambio' => 'boolean',
-        'vidro' => 'boolean',
-        'sistema_eletrico' => 'boolean',
-    ];
+    // protected $casts = [
+    //     'acessorio' => 'boolean',
+    //     'arcondicionado' => 'boolean',
+    //     'assento' => 'boolean',
+    //     'cambio' => 'boolean',
+    //     'documento' => 'boolean',
+    //     'embreagem' => 'boolean',
+    //     'espelho' => 'boolean',
+    //     'farol' => 'boolean',
+    //     'freio' => 'boolean',
+    //     'lataria' => 'boolean',
+    //     'motor' => 'boolean',
+    //     'pedal' => 'boolean',
+    //     'pneu' => 'boolean',
+    //     'radio' => 'boolean',
+    //     'sistema_eletrico' => 'boolean',
+    //     'suspensao' => 'boolean',
+    //     'vidro' => 'boolean'
+    // ];
 
     public function carro()
     {
-        return $this->belongsTo('App\Models\Carro', 'carro_id');
+        return $this->belongsTo(Carro::class, 'carro_id');
     }
 }

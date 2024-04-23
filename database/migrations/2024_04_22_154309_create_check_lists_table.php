@@ -14,17 +14,23 @@ return new class extends Migration
         Schema::create('check_lists', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('carro_id');
-            $table->boolean('motor')->default(false);
-            $table->boolean('lataria')->default(false);
-            $table->boolean('pneu')->default(false);
-            $table->boolean('documento')->default(false);
-            $table->boolean('freio')->default(false);
-            $table->boolean('suspensao')->default(false);
-            $table->boolean('embreagem')->default(false);
-            $table->boolean('pedal')->default(false);
+            $table->boolean('acessorio')->default(false);
+            $table->boolean('arcondicionado')->default(false);
+            $table->boolean('assento')->default(false);
             $table->boolean('cambio')->default(false);
-            $table->boolean('vidro')->default(false);
+            $table->boolean('documento')->default(false);
+            $table->boolean('embreagem')->default(false);
+            $table->boolean('espelho')->default(false);
+            $table->boolean('farol')->default(false);
+            $table->boolean('freio')->default(false);
+            $table->boolean('lataria')->default(false);
+            $table->boolean('motor')->default(false);
+            $table->boolean('pedal')->default(false);
+            $table->boolean('pneu')->default(false);
+            $table->boolean('radio')->default(false);
             $table->boolean('sistema_eletrico')->default(false);
+            $table->boolean('suspensao')->default(false);
+            $table->boolean('vidro')->default(false);
             $table->timestamps();
 
             $table->foreign('carro_id')->references('id')->on('carros')->onDelete('cascade');

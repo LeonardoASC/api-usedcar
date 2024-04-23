@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\CheckList;
 use App\Http\Requests\StoreCheckListRequest;
 use App\Http\Requests\UpdateCheckListRequest;
-use Illuminate\Http\Response;
+use Illuminate\Http\Request;
 
 class CheckListController extends Controller
 {
@@ -30,12 +30,13 @@ class CheckListController extends Controller
      */
     public function store(StoreCheckListRequest $request)
     {
-        $checklist = CarChecklist::create($request->validated());
+        $checklist = Checklist::create($request->validated());
 
         return response()->json([
+            "success" => true,
             'message' => 'Checklist created successfully!',
             'checklist' => $checklist
-        ], Response::HTTP_CREATED);
+        ]);
     }
 
     /**

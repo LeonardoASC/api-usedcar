@@ -23,17 +23,23 @@ class StoreCheckListRequest extends FormRequest
     {
         return [
             'carro_id' => 'required|integer|exists:carros,id',
-            'motor' => 'required|boolean',
-            'lataria' => 'required|boolean',
-            'pneu' => 'required|boolean',
-            'documento' => 'required|boolean',
-            'freio' => 'required|boolean',
-            'suspensao' => 'required|boolean',
-            'embreagem' => 'required|boolean',
-            'pedal' => 'required|boolean',
+            'acessorio' => 'required|boolean',
+            'arcondicionado' => 'required|boolean',
+            'assento' => 'required|boolean',
             'cambio' => 'required|boolean',
-            'vidro' => 'required|boolean',
+            'documento' => 'required|boolean',
+            'embreagem' => 'required|boolean',
+            'espelho' => 'required|boolean',
+            'farol' => 'required|boolean',
+            'freio' => 'required|boolean',
+            'lataria' => 'required|boolean',
+            'motor' => 'required|boolean',
+            'pedal' => 'required|boolean',
+            'pneu' => 'required|boolean',
+            'radio' => 'required|boolean',
             'sistema_eletrico' => 'required|boolean',
+            'suspensao' => 'required|boolean',
+            'vidro' => 'required|boolean'
         ];
     }
 }

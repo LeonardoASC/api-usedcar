@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Carro extends Model
 {
     use HasFactory;
+    protected $table = 'carros';
     protected $fillable = [
         'marca',
         'modelo',
@@ -19,6 +20,12 @@ class Carro extends Model
         'media_avaliacao',
     ];
 
+    public function checklists()
+    {
+        return $this->hasMany(CheckList::class, 'carro_id');
+    }
+    
+    // Partes do carro
     public function acessorio()
     {
         return $this->hasMany(Acessorio::class);
