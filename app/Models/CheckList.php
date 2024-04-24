@@ -17,25 +17,6 @@ class CheckList extends Model
         'pedal', 'pneu', 'radio', 'sistema_eletrico', 'suspensao', 'vidro'
     ];
 
-    // protected $casts = [
-    //     'acessorio' => 'boolean',
-    //     'arcondicionado' => 'boolean',
-    //     'assento' => 'boolean',
-    //     'cambio' => 'boolean',
-    //     'documento' => 'boolean',
-    //     'embreagem' => 'boolean',
-    //     'espelho' => 'boolean',
-    //     'farol' => 'boolean',
-    //     'freio' => 'boolean',
-    //     'lataria' => 'boolean',
-    //     'motor' => 'boolean',
-    //     'pedal' => 'boolean',
-    //     'pneu' => 'boolean',
-    //     'radio' => 'boolean',
-    //     'sistema_eletrico' => 'boolean',
-    //     'suspensao' => 'boolean',
-    //     'vidro' => 'boolean'
-    // ];
 
     public function carro()
     {

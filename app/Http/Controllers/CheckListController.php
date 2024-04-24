@@ -14,7 +14,7 @@ class CheckListController extends Controller
      */
     public function index()
     {
-        //
+        return CheckList::all();
     }
 
     /**
@@ -42,10 +42,15 @@ class CheckListController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(CheckList $checkList)
+    public function show(CheckList $checklist)
     {
-        //
+        if ($checklist) {
+            return response()->json($checklist);
+        } else {
+            return response()->json(['error' => 'Registro não encontrado']);
+        }
     }
+
 
     /**
      * Show the form for editing the specified resource.
