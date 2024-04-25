@@ -65,7 +65,15 @@ class CheckListController extends Controller
      */
     public function update(UpdateCheckListRequest $request, CheckList $checkList)
     {
-        //
+        // Atualiza o checklist com os dados validados
+        $checkList->update($request->validated());
+
+        // Retorna uma resposta JSON indicando sucesso
+        return response()->json([
+            'success' => true,
+            'message' => 'CheckList atualizado com sucesso!',
+            'data' => $checkList
+        ]);
     }
 
     /**
