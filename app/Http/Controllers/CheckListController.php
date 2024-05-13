@@ -63,17 +63,43 @@ class CheckListController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateCheckListRequest $request, CheckList $checkList)
+    // public function update(UpdateCheckListRequest $request, CheckList $checkList)
+    // {
+        
+    //     $checkList->update($request->validated());
+       
+    //     return response()->json([
+    //         'success' => true,
+    //         'message' => 'CheckList atualizado com sucesso!',
+    //         'data' => $checkList
+    //     ]);
+    // }
+    public function update(Request $request, $id)
     {
-        // Atualiza o checklist com os dados validados
-        $checkList->update($request->validated());
-
-        // Retorna uma resposta JSON indicando sucesso
-        return response()->json([
-            'success' => true,
-            'message' => 'CheckList atualizado com sucesso!',
-            'data' => $checkList
+        $validated = $request->validate([
+            'acessorio' => 'sometimes|boolean',
+            'arcondicionado' => 'sometimes|boolean',
+            'assento' => 'sometimes|boolean',
+            'cambio' => 'sometimes|boolean',
+            'documento' => 'sometimes|boolean',
+            'embreagem' => 'sometimes|boolean',
+            'espelho' => 'sometimes|boolean',
+            'farol' => 'sometimes|boolean',
+            'freio' => 'sometimes|boolean',
+            'lataria' => 'sometimes|boolean',
+            'motor' => 'sometimes|boolean',
+            'pedal' => 'sometimes|boolean',
+            'pneu' => 'sometimes|boolean',
+            'radio' => 'sometimes|boolean',
+            'sistema_eletrico' => 'sometimes|boolean',
+            'suspensao' => 'sometimes|boolean',
+            'vidro' => 'sometimes|boolean',
         ]);
+
+        $checklist = CheckList::findOrFail($id);
+        $checklist->update($validated);
+
+        return response()->json($checklist);
     }
 
     /**

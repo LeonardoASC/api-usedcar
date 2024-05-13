@@ -11,7 +11,7 @@ class UpdateCheckListRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,23 @@ class UpdateCheckListRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'acessorio'        => 'nullable|boolean',
+            'arcondicionado'   => 'nullable|boolean',
+            'assento'          => 'nullable|boolean',
+            'cambio'           => 'nullable|boolean',
+            'documento'        => 'nullable|boolean',
+            'embreagem'        => 'nullable|boolean',
+            'espelho'          => 'nullable|boolean',
+            'farol'            => 'nullable|boolean',
+            'freio'            => 'nullable|boolean',
+            'lataria'          => 'nullable|boolean',
+            'motor'            => 'nullable|boolean',
+            'pedal'            => 'nullable|boolean',
+            'pneu'             => 'nullable|boolean',
+            'radio'            => 'nullable|boolean',
+            'sistema_eletrico' => 'nullable|boolean',
+            'suspensao'        => 'nullable|boolean',
+            'vidro'            => 'nullable|boolean',
         ];
     }
 }
