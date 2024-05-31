@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('check_lists', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('carro_id');
             $table->boolean('acessorio')->default(false);
             $table->boolean('arcondicionado')->default(false);
@@ -33,6 +34,7 @@ return new class extends Migration
             $table->boolean('vidro')->default(false);
             $table->timestamps();
 
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('carro_id')->references('id')->on('carros')->onDelete('cascade');
         });
     }

@@ -11,6 +11,7 @@ class CheckList extends Model
     use HasFactory;
     protected $table = 'check_lists';
     protected $fillable = [
+        'user_id',
         'carro_id',
         'acessorio', 'arcondicionado', 'assento', 'cambio', 'documento',
         'embreagem', 'espelho', 'farol', 'freio', 'lataria', 'motor',
@@ -21,5 +22,10 @@ class CheckList extends Model
     public function carro()
     {
         return $this->belongsTo(Carro::class, 'carro_id');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
     }
 }

@@ -22,6 +22,7 @@ class StoreCheckListRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'user_id' => 'required|exists:users,id',
             'carro_id' => 'required|integer|exists:carros,id',
             'acessorio' => 'required|boolean',
             'arcondicionado' => 'required|boolean',

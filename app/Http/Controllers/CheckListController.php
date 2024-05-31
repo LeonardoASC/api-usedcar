@@ -6,6 +6,7 @@ use App\Models\CheckList;
 use App\Http\Requests\StoreCheckListRequest;
 use App\Http\Requests\UpdateCheckListRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CheckListController extends Controller
 {
@@ -17,9 +18,6 @@ class CheckListController extends Controller
         return CheckList::all();
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         //
@@ -60,20 +58,6 @@ class CheckListController extends Controller
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    // public function update(UpdateCheckListRequest $request, CheckList $checkList)
-    // {
-        
-    //     $checkList->update($request->validated());
-       
-    //     return response()->json([
-    //         'success' => true,
-    //         'message' => 'CheckList atualizado com sucesso!',
-    //         'data' => $checkList
-    //     ]);
-    // }
     public function update(Request $request, $id)
     {
         $validated = $request->validate([
@@ -108,5 +92,22 @@ class CheckListController extends Controller
     public function destroy(CheckList $checkList)
     {
         //
+    }
+
+    // public function getUserChecklists()
+    // {
+    //     $user = Auth::user();
+    //     if (!$user) {
+    //         return response()->json(['error' => 'User not authenticated'], 401);
+    //     }
+
+    //     $checklists = $user->checklists;
+    //     return response()->json($checklists);
+    // }
+    public function getUserChecklists()
+    {
+        $userId = Auth::id();
+        $checklists = CheckList::with('carro')->where('user_id', $userId)->get();
+        return response()->json($checklists);
     }
 }
