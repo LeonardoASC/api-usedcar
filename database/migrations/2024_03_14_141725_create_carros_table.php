@@ -16,11 +16,13 @@ return new class extends Migration
             $table->string('marca');
             $table->string('modelo');
             $table->string('ano');
+            $table->string('cilindrada');
             $table->string('tipo_carroceria');
             $table->string('numero_portas');
             $table->float('km_litro', 4, 2)->default(0);
             $table->float('tabela_fipe', 8, 2)->default(0);
             $table->float('media_avaliacao', 3, 2)->default(0);
+            $table->string('foto')->nullable();
             $table->timestamps();
         });
     }
