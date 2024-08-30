@@ -61,24 +61,25 @@ class CheckListController extends Controller
     public function update(Request $request, $id)
     {
         $validated = $request->validate([
-            'acessorio' => 'sometimes|boolean',
-            'arcondicionado' => 'sometimes|boolean',
-            'assento' => 'sometimes|boolean',
-            'cambio' => 'sometimes|boolean',
-            'documento' => 'sometimes|boolean',
-            'embreagem' => 'sometimes|boolean',
-            'espelho' => 'sometimes|boolean',
-            'farol' => 'sometimes|boolean',
-            'freio' => 'sometimes|boolean',
-            'lataria' => 'sometimes|boolean',
-            'motor' => 'sometimes|boolean',
-            'pedal' => 'sometimes|boolean',
-            'pneu' => 'sometimes|boolean',
-            'radio' => 'sometimes|boolean',
-            'sistema_eletrico' => 'sometimes|boolean',
-            'suspensao' => 'sometimes|boolean',
-            'vidro' => 'sometimes|boolean',
+            'acessorio' => 'sometimes|in:Bom,Regular,Ruim',
+            'arcondicionado' => 'sometimes|in:Bom,Regular,Ruim',
+            'assento' => 'sometimes|in:Bom,Regular,Ruim',
+            'cambio' => 'sometimes|in:Bom,Regular,Ruim',
+            'documento' => 'sometimes|in:Bom,Regular,Ruim',
+            'embreagem' => 'sometimes|in:Bom,Regular,Ruim',
+            'espelho' => 'sometimes|in:Bom,Regular,Ruim',
+            'farol' => 'sometimes|in:Bom,Regular,Ruim',
+            'freio' => 'sometimes|in:Bom,Regular,Ruim',
+            'lataria' => 'sometimes|in:Bom,Regular,Ruim',
+            'motor' => 'sometimes|in:Bom,Regular,Ruim',
+            'pedal' => 'sometimes|in:Bom,Regular,Ruim',
+            'pneu' => 'sometimes|in:Bom,Regular,Ruim',
+            'radio' => 'sometimes|in:Bom,Regular,Ruim',
+            'sistema_eletrico' => 'sometimes|in:Bom,Regular,Ruim',
+            'suspensao' => 'sometimes|in:Bom,Regular,Ruim',
+            'vidro' => 'sometimes|in:Bom,Regular,Ruim',
         ]);
+        
 
         $checklist = CheckList::findOrFail($id);
         $checklist->update($validated);
