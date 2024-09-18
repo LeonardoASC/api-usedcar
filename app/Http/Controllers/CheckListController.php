@@ -20,6 +20,7 @@ class CheckListController extends Controller
     public function getLastChecklist()
     {
         $lastChecklist = Checklist::latest()->first();
+        // $lastChecklist = Checklist::latest()->first()->makeHidden(['id', 'user_id', 'carro_id', 'created_at', 'updated_at']);
         return response()->json($lastChecklist);
     }
 
@@ -85,7 +86,7 @@ class CheckListController extends Controller
             'suspensao' => 'sometimes|in:Bom,Regular,Ruim',
             'vidro' => 'sometimes|in:Bom,Regular,Ruim',
         ]);
-        
+
 
         $checklist = CheckList::findOrFail($id);
         $checklist->update($validated);
