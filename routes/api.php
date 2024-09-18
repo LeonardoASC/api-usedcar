@@ -27,6 +27,7 @@ Route::get('user', [App\Http\Controllers\AuthController::class, 'getAuthUser']);
 
 Route::resource('carros', App\Http\Controllers\CarroController::class);
 Route::resource('checklist', App\Http\Controllers\CheckListController::class);
+Route::get('checklist-last', [App\Http\Controllers\ChecklistController::class, 'getLastChecklist']);
 // Route::get('/user/checklists', [App\Http\Controllers\CheckListController::class, 'getUserChecklists']);
 Route::middleware('auth')->get('/user/checklists', [App\Http\Controllers\CheckListController::class, 'getUserChecklists']);
 

@@ -17,6 +17,12 @@ class CheckListController extends Controller
     {
         return CheckList::all();
     }
+    public function getLastChecklist()
+    {
+        $lastChecklist = Checklist::latest()->first();
+        return response()->json($lastChecklist);
+    }
+
 
     public function create()
     {
