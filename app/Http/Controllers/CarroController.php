@@ -35,6 +35,11 @@ class CarroController extends Controller
         return Carro::orderBy('tabela_fipe', 'asc')->get();
     }
 
+    public function indexCar(Carro $carro)
+    {
+        //retona um carro especifico pelo id
+        return $carro;
+    }
     /**
      * Show the form for creating a new resource.
      */

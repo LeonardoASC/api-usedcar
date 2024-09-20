@@ -34,6 +34,7 @@ Route::middleware('auth')->get('/user/checklists', [App\Http\Controllers\CheckLi
 
 Route::get('carrosfuel', [App\Http\Controllers\CarroController::class, 'indexFuel']);
 Route::get('carrosfipe', [App\Http\Controllers\CarroController::class, 'indexFipe']);
+Route::get('carro/{carro}', [App\Http\Controllers\CarroController::class, 'indexCar']);
 
 Route::resource('motores', App\Http\Controllers\MotorController::class);
 Route::resource('latarias', App\Http\Controllers\LatariaController::class);
