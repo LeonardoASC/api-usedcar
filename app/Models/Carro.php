@@ -24,7 +24,12 @@ class Carro extends Model
     {
         return $this->hasMany(CheckList::class, 'carro_id');
     }
-    
+
+    public function itens()
+    {
+        return $this->belongsToMany(Item::class, 'carro_itens', 'carro_id', 'item_id')->withPivot('id');
+    }
+
     // Partes do carro
     public function acessorio()
     {
@@ -94,4 +99,5 @@ class Carro extends Model
     {
         return $this->hasMany(Vidro::class);
     }
+    
 }
