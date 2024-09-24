@@ -8,11 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Item extends Model
 {
     use HasFactory;
-    protected $table = 'itens';
     protected $fillable = ['name'];
-
-    public function Carro()
+ 
+    public function carros()
     {
-        return $this->belongsToMany(Carro::class, 'carro_itens', 'item_id', 'carro_id');
+        return $this->belongsToMany(Carro::class)
+                    ->withPivot('foto', 'descricao');
     }
 }

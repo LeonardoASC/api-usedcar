@@ -7,8 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class CarroItem extends Model
 {
-    use HasFactory;
-    protected $table = 'carro_itens';
     protected $fillable = ['carro_id', 'item_id', 'foto', 'descricao'];
 
+    public function carro()
+    {
+        return $this->belongsTo(Carro::class, 'carro_id');
+    }
+
+    public function item()
+    {
+        return $this->belongsTo(Item::class, 'item_id');
+    }
 }

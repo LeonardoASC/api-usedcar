@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Carro extends Model
 {
     use HasFactory;
-    protected $table = 'carros';
     protected $fillable = [
         'marca',
         'modelo',
@@ -27,8 +26,9 @@ class Carro extends Model
 
     public function itens()
     {
-        return $this->belongsToMany(Item::class, 'carro_itens', 'carro_id', 'item_id')->withPivot('id');
+        return $this->belongsToMany(Item::class)->withPivot('foto', 'descricao');
     }
+
 
     // Partes do carro
     public function acessorio()
