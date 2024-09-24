@@ -54,4 +54,8 @@ Route::resource('farois', App\Http\Controllers\FarolController::class);
 Route::resource('radios', App\Http\Controllers\RadioController::class);
 Route::resource('ares_condicionados', App\Http\Controllers\ArCondicionadoController::class);
 
+Route::resource('carro_itens', App\Http\Controllers\CarroItemController::class);
+Route::resource('item', App\Http\Controllers\ItemController::class);
+
+
 

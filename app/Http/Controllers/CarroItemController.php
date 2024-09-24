@@ -2,18 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Item;
-use App\Http\Requests\StoreItemRequest;
-use App\Http\Requests\UpdateItemRequest;
+use App\Models\CarroItem;
+use App\Http\Requests\StoreCarroItemRequest;
+use App\Http\Requests\UpdateCarroItemRequest;
 
-class ItemController extends Controller
+
+class CarroItemController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return Item::with('carro')->get();
+        // return CarroItem::all();
+        return CarroItem::with('carro')->get();
     }
 
     /**
@@ -27,7 +29,7 @@ class ItemController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreItemRequest $request)
+    public function store(StoreCarroItemRequest $request)
     {
         //
     }
@@ -35,16 +37,16 @@ class ItemController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Item $item)
+    public function show(CarroItem $carroItem)
     {
-        $item->load('carro');
-        return $item;
+        $carroItem->load('carro');
+        return $carroItem;
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Item $item)
+    public function edit(CarroItem $carroItem)
     {
         //
     }
@@ -52,7 +54,7 @@ class ItemController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateItemRequest $request, Item $item)
+    public function update(UpdateCarroItemRequest $request, CarroItem $carroItem)
     {
         //
     }
@@ -60,7 +62,7 @@ class ItemController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Item $item)
+    public function destroy(CarroItem $carroItem)
     {
         //
     }
