@@ -13,7 +13,7 @@ class ItemController extends Controller
      */
     public function index()
     {
-        return Item::with('carro')->get();
+        return Item::all();
     }
 
     /**
@@ -37,7 +37,7 @@ class ItemController extends Controller
      */
     public function show(Item $item)
     {
-        $item->load('carro');
+        // $item->load('carro');
         return $item;
     }
 
