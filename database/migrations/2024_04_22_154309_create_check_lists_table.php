@@ -15,23 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('carro_id');
-            $table->string('acessorio');
-            $table->string('arcondicionado');
-            $table->string('assento');
-            $table->string('cambio');
-            $table->string('documento');
-            $table->string('embreagem');
-            $table->string('espelho');
-            $table->string('farol');
-            $table->string('freio');
-            $table->string('lataria');
-            $table->string('motor');
-            $table->string('pedal');
-            $table->string('pneu');
-            $table->string('radio');
-            $table->string('sistema_eletrico');
-            $table->string('suspensao');
-            $table->string('vidro');
+            $table->boolean('status')->default(false);
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

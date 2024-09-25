@@ -18,14 +18,19 @@ class CheckList extends Model
         'pedal', 'pneu', 'radio', 'sistema_eletrico', 'suspensao', 'vidro'
     ];
 
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 
     public function carro()
     {
         return $this->belongsTo(Carro::class, 'carro_id');
     }
 
-    public function user()
+    public function items()
     {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsToMany(Item::class);
     }
+
 }

@@ -12,7 +12,14 @@ class Item extends Model
  
     public function carros()
     {
-        return $this->belongsToMany(Carro::class)
-                    ->withPivot('foto', 'descricao');
+        return $this->belongsToMany(Carro::class, 'carro_items')
+            ->withPivot('foto', 'descricao')
+            ->withTimestamps();
     }
+
+    public function checklists()
+    {
+        return $this->belongsToMany(Checklist::class);
+    }
+
 }

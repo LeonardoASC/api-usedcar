@@ -66,4 +66,21 @@ class CarroItemController extends Controller
     {
         //
     }
+
+    public function buscarPorCarroEItem($carro_id, $item_id)
+    {
+        // Busca o item do carro com os relacionamentos 'carro' e 'item'
+        $carroItem = CarroItem::where('carro_id', $carro_id)
+            ->where('item_id', $item_id)
+            ->with(['carro', 'item'])
+            ->first();
+
+        // Verifica se o item foi encontrado
+        if (!$carroItem) {
+            return response()->json(['message' => 'Item do carro não encontrado'], 404);
+        }
+
+        // Retorna as informações do item do carro
+        return response()->json($carroItem);
+    }
 }

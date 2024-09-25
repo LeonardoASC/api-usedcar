@@ -17,25 +17,27 @@ class DatabaseSeeder extends Seeder
         $this->call(CarroSeeder::class);
         $this->call(ItemSeeder::class);
         $this->call(CarroItemSeeder::class);
+        $this->call(CheckListSeeder::class);
+        $this->call(ChecklistItemSeeder::class);
 
 
-        $this->call(MotorSeeder::class);
-        $this->call(DocumentoSeeder::class);
-        $this->call(LatariaSeeder::class);
-        $this->call(PneuSeeder::class);
-        $this->call(FreioSeeder::class);
-        $this->call(SuspensaoSeeder::class);
-        $this->call(EmbreagemSeeder::class);
-        $this->call(SistemaEletricoSeeder::class);
-        $this->call(PedalSeeder::class);
-        $this->call(CambioSeeder::class);
-        $this->call(VidroSeeder::class);
-        $this->call(AssentoSeeder::class);
-        $this->call(AcessorioSeeder::class);
-        $this->call(EspelhoSeeder::class);
-        $this->call(FarolSeeder::class);
-        $this->call(RadioSeeder::class);
-        $this->call(ArCondicionadoSeeder::class);
+        // $this->call(MotorSeeder::class);
+        // $this->call(DocumentoSeeder::class);
+        // $this->call(LatariaSeeder::class);
+        // $this->call(PneuSeeder::class);
+        // $this->call(FreioSeeder::class);
+        // $this->call(SuspensaoSeeder::class);
+        // $this->call(EmbreagemSeeder::class);
+        // $this->call(SistemaEletricoSeeder::class);
+        // $this->call(PedalSeeder::class);
+        // $this->call(CambioSeeder::class);
+        // $this->call(VidroSeeder::class);
+        // $this->call(AssentoSeeder::class);
+        // $this->call(AcessorioSeeder::class);
+        // $this->call(EspelhoSeeder::class);
+        // $this->call(FarolSeeder::class);
+        // $this->call(RadioSeeder::class);
+        // $this->call(ArCondicionadoSeeder::class);
 
 
     }

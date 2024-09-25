@@ -55,6 +55,9 @@ Route::get('carro/{carro}', [App\Http\Controllers\CarroController::class, 'index
 // Route::resource('ares_condicionados', App\Http\Controllers\ArCondicionadoController::class);
 
 Route::resource('carro_itens', App\Http\Controllers\CarroItemController::class);
+// Route::get('/carro_itens/busca', [App\Http\Controllers\CarroItemController::class, 'buscarPorCarroEItem']);
+Route::get('/carro_itens/{carro_id}/{item_id}', [App\Http\Controllers\CarroItemController::class, 'buscarPorCarroEItem']);
+
 Route::resource('item', App\Http\Controllers\ItemController::class);
 
 

@@ -26,7 +26,9 @@ class Carro extends Model
 
     public function itens()
     {
-        return $this->belongsToMany(Item::class)->withPivot('foto', 'descricao');
+        return $this->belongsToMany(Item::class, 'carro_items')
+                    ->withPivot('foto', 'descricao')
+                    ->withTimestamps();
     }
 
 
