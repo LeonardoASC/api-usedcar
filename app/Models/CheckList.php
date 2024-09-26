@@ -25,7 +25,7 @@ class CheckList extends Model
     public function items()
     {
         return $this->belongsToMany(Item::class, 'check_list_item', 'check_list_id', 'item_id')
-                    ->withPivot('status')
+                    ->withPivot('status', 'created_at', 'updated_at')
                     ->withTimestamps();
     }
 

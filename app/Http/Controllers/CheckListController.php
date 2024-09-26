@@ -76,13 +76,17 @@ class CheckListController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(CheckList $checklist)
+    public function show($id)
     {
-        if ($checklist) {
-            return response()->json($checklist);
-        } else {
-            return response()->json(['error' => 'Registro não encontrado']);
-        }
+        // Carrega o checklist com os itens relacionados e os dados da tabela pivô
+        $checkList = CheckList::with(['items' => function($query) {
+            $query->select('items.id', 'items.nome');
+        }])->findOrFail($id);
+
+        // Retorna a resposta JSON
+        return response()->json([
+            'data' => $checkList
+        ]);
     }
 
 
