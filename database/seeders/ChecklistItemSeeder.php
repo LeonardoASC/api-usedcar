@@ -15,46 +15,73 @@ class ChecklistItemSeeder extends Seeder
     {
         $checklistItems = [
             [
-                'checklist_id' => 1,
+                'check_list_id' => 1,
                 'item_id' => 1,
             ],
             [
-                'checklist_id' => 1,
+                'check_list_id' => 1,
                 'item_id' => 2,
             ],
             [
-                'checklist_id' => 1,
+                'check_list_id' => 1,
                 'item_id' => 3,
             ],
             [
-                'checklist_id' => 1,
-                'item_id' => 4,
+                'check_list_id' => 1,
+                'item_id' => 4,                
             ],
             [
-                'checklist_id' => 1,
-                'item_id' => 5,
+                'check_list_id' => 1,
+                'item_id' => 5,                
             ],
             [
-                'checklist_id' => 1,
-                'item_id' => 6,
+                'check_list_id' => 1,
+                'item_id' => 6,                
             ],
             [
-                'checklist_id' => 1,
-                'item_id' => 7,
+                'check_list_id' => 1,
+                'item_id' => 7,                
             ],
             [
-                'checklist_id' => 1,
-                'item_id' => 8,
+                'check_list_id' => 1,
+                'item_id' => 8,                
             ],
             [
-                'checklist_id' => 1,
-                'item_id' => 9,
+                'check_list_id' => 1,
+                'item_id' => 9,                
             ],
             [
-                'checklist_id' => 1,
-                'item_id' => 10,
+                'check_list_id' => 1,
+                'item_id' => 10,                
             ],
-           
+            [
+                'check_list_id' => 1,
+                'item_id' => 11,                
+            ],
+            [
+                'check_list_id' => 1,
+                'item_id' => 12,                
+            ],
+            [
+                'check_list_id' => 1,
+                'item_id' => 13,                
+            ],
+            [
+                'check_list_id' => 1,
+                'item_id' => 14,                
+            ],
+            [
+                'check_list_id' => 1,
+                'item_id' => 15,                
+            ],
+            [
+                'check_list_id' => 1,
+                'item_id' => 16,                
+            ],
+            [
+                'check_list_id' => 1,
+                'item_id' => 17,                
+            ],        
         ];
         foreach ($checklistItems as $checklistItem) {
             ChecklistItem::create($checklistItem);

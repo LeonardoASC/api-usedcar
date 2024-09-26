@@ -11,13 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('checklist_items', function (Blueprint $table) {
+        Schema::create('check_list_item', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('checklist_id');
+            $table->unsignedBigInteger('check_list_id');
             $table->unsignedBigInteger('item_id');
+            $table->enum('status',['Bom', 'Regular', 'Ruim', 'A verificar'])->default('A verificar');
             $table->timestamps();
 
-            $table->foreign('checklist_id')->references('id')->on('check_lists')->onDelete('cascade');
+            $table->foreign('check_list_id')->references('id')->on('check_lists')->onDelete('cascade');
             $table->foreign('item_id')->references('id')->on('items')->onDelete('cascade');
         });
     }
@@ -27,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('checklist_items');
+        Schema::dropIfExists('check_list_item');
     }
 };

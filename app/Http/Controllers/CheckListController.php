@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\CheckList;
+use App\Models\Item;
 use App\Http\Requests\StoreCheckListRequest;
 use App\Http\Requests\UpdateCheckListRequest;
 use Illuminate\Http\Request;
@@ -33,15 +34,43 @@ class CheckListController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreCheckListRequest $request)
+    public function store(Request $request)
     {
-        $checklist = Checklist::create($request->validated());
-
-        return response()->json([
-            "success" => true,
-            'message' => 'Checklist created successfully!',
-            'checklist' => $checklist
+        // Validação dos dados de entrada
+        $validatedData = $request->validate([
+            'user_id' => 'required|exists:users,id',
+            'carro_id' => 'required|exists:carros,id',
+            'status' => 'boolean',
         ]);
+
+        // Criação da CheckList
+        $checkList = CheckList::create([
+            'user_id' => $validatedData['user_id'],
+            'carro_id' => $validatedData['carro_id'],
+            'status' => $validatedData['status'] ?? false,
+        ]);
+
+        // Obter todos os IDs dos itens atuais
+        $allItemIds = Item::pluck('id')->toArray();
+
+        // Preparar dados para sincronização, incluindo 'status' padrão
+        $syncData = [];
+        foreach ($allItemIds as $itemId) {
+            $syncData[$itemId] = [
+                'status' => 'A verificar', // Ou outro valor padrão
+            ];
+        }
+        // Sincronizar os itens com a CheckList, preenchendo timestamps e status
+        $checkList->items()->sync($syncData);
+
+        // Recarregar o modelo para incluir os itens associados
+        $checkList->load('items');
+
+        // Retorno da resposta
+        return response()->json([
+            'message' => 'CheckList criada com sucesso.',
+            'data' => $checkList,
+        ], 201);
     }
 
     /**

@@ -10,13 +10,7 @@ class CheckList extends Model
 {
     use HasFactory;
     protected $table = 'check_lists';
-    protected $fillable = [
-        'user_id',
-        'carro_id',
-        'acessorio', 'arcondicionado', 'assento', 'cambio', 'documento',
-        'embreagem', 'espelho', 'farol', 'freio', 'lataria', 'motor',
-        'pedal', 'pneu', 'radio', 'sistema_eletrico', 'suspensao', 'vidro'
-    ];
+    protected $fillable = ['user_id','carro_id','status'];
 
     public function user()
     {
@@ -30,7 +24,9 @@ class CheckList extends Model
 
     public function items()
     {
-        return $this->belongsToMany(Item::class);
+        return $this->belongsToMany(Item::class, 'check_list_item', 'check_list_id', 'item_id')
+                    ->withPivot('status')
+                    ->withTimestamps();
     }
 
 }
