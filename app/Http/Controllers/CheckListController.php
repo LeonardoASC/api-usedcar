@@ -20,9 +20,51 @@ class CheckListController extends Controller
     }
     public function getLastChecklist()
     {
-        $lastChecklist = Checklist::latest()->first();
-        // $lastChecklist = Checklist::latest()->first()->makeHidden(['id', 'user_id', 'carro_id', 'created_at', 'updated_at']);
-        return response()->json($lastChecklist);
+        // Busca o último checklist com seus itens
+        $lastChecklist = Checklist::with('items')
+            ->latest()
+            ->first();
+
+        // Verifica se o checklist existe
+        if (!$lastChecklist) {
+            return response()->json(['message' => 'Nenhum checklist encontrado'], 404);
+        }
+
+        // Verifica se o status do checklist é 1
+        $isChecklistStatusTrue = $lastChecklist->status === 1;
+
+        // Verifica se todos os itens da checklist têm status diferente de "A verificar"
+        $areAllItemsStatusNonZero = $lastChecklist->items->every(function ($item) {
+            return $item->pivot->status !== 'A verificar';
+        });
+
+        // Retorna a resposta com as verificações
+        return response()->json([
+            // 'CheckList' => $lastChecklist,
+            'CheckListStatus' => $isChecklistStatusTrue,
+            'CheckListItemStatus' => $areAllItemsStatusNonZero,
+        ]);
+    }
+
+    public function resumeLastChecklist()
+    {
+        // Busca o último checklist sem items
+        $lastChecklist = CheckList::latest()->first();
+
+
+        // $lastChecklist = CheckList::with('items')
+        //     ->latest()
+        //     ->first();
+
+        // Verifica se o checklist existe
+        if (!$lastChecklist) {
+            return response()->json(['message' => 'Nenhum checklist encontrado'], 404);
+        }
+
+        // Retorna a resposta com as verificações
+        return response()->json([
+            'CheckList' => $lastChecklist,
+        ]);
     }
 
 
@@ -100,31 +142,39 @@ class CheckListController extends Controller
 
     public function update(Request $request, $id)
     {
-        $validated = $request->validate([
-            'acessorio' => 'sometimes|in:Bom,Regular,Ruim',
-            'arcondicionado' => 'sometimes|in:Bom,Regular,Ruim',
-            'assento' => 'sometimes|in:Bom,Regular,Ruim',
-            'cambio' => 'sometimes|in:Bom,Regular,Ruim',
-            'documento' => 'sometimes|in:Bom,Regular,Ruim',
-            'embreagem' => 'sometimes|in:Bom,Regular,Ruim',
-            'espelho' => 'sometimes|in:Bom,Regular,Ruim',
-            'farol' => 'sometimes|in:Bom,Regular,Ruim',
-            'freio' => 'sometimes|in:Bom,Regular,Ruim',
-            'lataria' => 'sometimes|in:Bom,Regular,Ruim',
-            'motor' => 'sometimes|in:Bom,Regular,Ruim',
-            'pedal' => 'sometimes|in:Bom,Regular,Ruim',
-            'pneu' => 'sometimes|in:Bom,Regular,Ruim',
-            'radio' => 'sometimes|in:Bom,Regular,Ruim',
-            'sistema_eletrico' => 'sometimes|in:Bom,Regular,Ruim',
-            'suspensao' => 'sometimes|in:Bom,Regular,Ruim',
-            'vidro' => 'sometimes|in:Bom,Regular,Ruim',
-        ]);
-
-
         $checklist = CheckList::findOrFail($id);
         $checklist->update($validated);
 
         return response()->json($checklist);
+    }
+
+    public function updateItemStatus(Request $request, $checkListId, $itemId)
+    {
+        // Validação dos dados de entrada
+        $validatedData = $request->validate([
+            'status' => 'required|in:Bom,Regular,Ruim,A verificar',
+        ]);
+
+        // Encontrar a CheckList especificada
+        $checkList = CheckList::findOrFail($checkListId);
+
+        // Verificar se o item existe na CheckList
+        if (!$checkList->items()->where('items.id', $itemId)->exists()) {
+            return response()->json([
+                'message' => 'Item não encontrado na CheckList.',
+            ], 404);
+        }
+
+        // Atualizar o status na tabela pivô
+        $checkList->items()->updateExistingPivot($itemId, [
+            'status' => $validatedData['status'],
+            'updated_at' => now(),
+        ]);
+
+        // Retornar uma resposta de sucesso
+        return response()->json([
+            'message' => 'Status atualizado com sucesso.',
+        ], 200);
     }
 
     /**

@@ -2,6 +2,14 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CarroController;
+use App\Http\Controllers\ItemController;
+use App\Http\Controllers\CheckListController;
+use App\Http\Controllers\CarroItemController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,28 +27,29 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-Route::get('users', [App\Http\Controllers\UserController::class, 'index']);
-Route::post('register', [App\Http\Controllers\AuthController::class, 'register']);
-Route::post('login', [App\Http\Controllers\AuthController::class, 'login']);
-Route::get('logout', [App\Http\Controllers\AuthController::class, 'logout']);
-Route::get('user', [App\Http\Controllers\AuthController::class, 'getAuthUser']);
+Route::get('users', [UserController::class, 'index']);
+Route::post('register', [AuthController::class, 'register']);
+Route::post('login', [AuthController::class, 'login']);
+Route::get('logout', [AuthController::class, 'logout']);
+Route::get('user', [AuthController::class, 'getAuthUser']);
 
-Route::resource('carros', App\Http\Controllers\CarroController::class);
-Route::resource('item', App\Http\Controllers\ItemController::class);
-Route::resource('checklist', App\Http\Controllers\CheckListController::class);
-Route::get('checklist-last', [App\Http\Controllers\ChecklistController::class, 'getLastChecklist']);
-// Route::get('/user/checklists', [App\Http\Controllers\CheckListController::class, 'getUserChecklists']);
-Route::middleware('auth')->get('/user/checklists', [App\Http\Controllers\CheckListController::class, 'getUserChecklists']);
+Route::resource('carros', CarroController::class);
+Route::resource('item', ItemController::class);
+Route::resource('checklist', CheckListController::class);
+Route::get('checklist-last', [ChecklistController::class, 'getLastChecklist']);
+Route::get('checklist-resume', [ChecklistController::class, 'resumeLastChecklist']);
+Route::put('/checklist/{checklist}/item/{item}', [CheckListController::class, 'updateItemStatus']);
+// Route::get('/user/checklists', [CheckListController::class, 'getUserChecklists']);
+Route::middleware('auth')->get('/user/checklists', [CheckListController::class, 'getUserChecklists']);
 
 
-Route::get('carrosfuel', [App\Http\Controllers\CarroController::class, 'indexFuel']);
-Route::get('carrosfipe', [App\Http\Controllers\CarroController::class, 'indexFipe']);
-Route::get('carro/{carro}', [App\Http\Controllers\CarroController::class, 'indexCar']);
+Route::get('carrosfuel', [CarroController::class, 'indexFuel']);
+Route::get('carrosfipe', [CarroController::class, 'indexFipe']);
+Route::get('carro/{carro}', [CarroController::class, 'indexCar']);
 
-Route::resource('carro_itens', App\Http\Controllers\CarroItemController::class);
-// Route::get('/carro_itens/busca', [App\Http\Controllers\CarroItemController::class, 'buscarPorCarroEItem']);
-Route::get('/carro_itens/{carro_id}/{item_id}', [App\Http\Controllers\CarroItemController::class, 'buscarPorCarroEItem']);
-
+Route::resource('carro_itens', CarroItemController::class);
+// Route::get('/carro_itens/busca', [CarroItemController::class, 'buscarPorCarroEItem']);
+Route::get('/carro_itens/{carro_id}/{item_id}', [CarroItemController::class, 'buscarPorCarroEItem']);
 
 
 
