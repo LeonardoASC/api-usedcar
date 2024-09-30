@@ -22,8 +22,11 @@ class CarroController extends Controller
      */
     public function indexFuel()
     {
-        //mostrar carros ordenados pelo menor consumo
-        return Carro::orderBy('km_litro', 'asc')->get();
+        $carros = Carro::orderBy('km_litro', 'asc')->get();
+        $carros->each(function ($carro, $index) {
+            $carro->posicao = $index + 1;
+        });
+        return $carros;
     }
 
     /**
@@ -31,8 +34,11 @@ class CarroController extends Controller
      */
     public function indexFipe()
     {
-        //mostrar carros ordenados pelo menor preço
-        return Carro::orderBy('tabela_fipe', 'asc')->get();
+        $carros = Carro::orderBy('tabela_fipe', 'asc')->get();
+        $carros->each(function ($carro, $index) {
+            $carro->posicao = $index + 1;
+        });
+        return $carros;
     }
 
     public function indexCar(Carro $carro)
