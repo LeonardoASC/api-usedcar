@@ -140,13 +140,69 @@ class CheckListController extends Controller
         //
     }
 
-    public function update(Request $request, $id)
-    {
-        $checklist = CheckList::findOrFail($id);
-        $checklist->update($validated);
+    // public function update(Request $request, $id)
+    // {
+    //     $checklist = CheckList::findOrFail($id);
+    //     $checklist->update($validated);
 
-        return response()->json($checklist);
+    //     return response()->json($checklist);
+    // }
+
+    // public function update(Request $request, $id)
+    // {
+    //     // Encontrar a checklist pelo ID
+    //     $checklist = Checklist::find($id);
+
+    //     // Verificar se a checklist existe
+    //     if (!$checklist) {
+    //         return response()->json([
+    //             'message' => 'Checklist não encontrada.'
+    //         ], Response::HTTP_NOT_FOUND);
+    //     }
+
+    //     // Atualizar os campos permitidos
+    //     $checklist->user_id = $request->input('user_id', $checklist->user_id);
+    //     $checklist->carro_id = $request->input('carro_id', $checklist->carro_id);
+    //     $checklist->status = $request->input('status', $checklist->status);
+
+    //     // Salvar as alterações no banco de dados
+    //     $checklist->save();
+
+    //     // Retornar a checklist atualizada
+    //     return response()->json([
+    //         'message' => 'Checklist atualizada com sucesso.',
+    //         'data' => $checklist
+    //     ], 201);
+    // }
+
+    public function update(Request $request, $id)
+{
+    // Encontrar a checklist pelo ID
+    $checklist = Checklist::find($id);
+
+    // Verificar se a checklist existe
+    if (!$checklist) {
+        return response()->json([
+            'message' => 'Checklist não encontrada.'
+        ], 404);
     }
+
+    // Validar os dados recebidos
+    $validatedData = $request->validate([
+        'user_id' => 'sometimes|integer|exists:users,id',
+        'carro_id' => 'sometimes|integer|exists:carros,id',
+        'status' => 'sometimes|boolean',
+    ]);
+
+    // Atualizar os campos com os dados validados
+    $checklist->update($validatedData);
+
+    // Retornar a checklist atualizada
+    return response()->json([
+        'message' => 'Checklist atualizada com sucesso.',
+        'data' => $checklist
+    ], 200);
+}
 
     public function updateItemStatus(Request $request, $checkListId, $itemId)
     {
@@ -197,8 +253,25 @@ class CheckListController extends Controller
     // }
     public function getUserChecklists()
     {
+        // Obtém o ID do usuário autenticado
         $userId = Auth::id();
-        $checklists = CheckList::with('carro')->where('user_id', $userId)->get();
-        return response()->json($checklists);
+
+        // Verifica se há um usuário autenticado
+        if (!$userId) {
+            return response()->json(['message' => 'Usuário não autenticado'], 401);
+        }
+
+        // Recupera todos os checklists do usuário autenticado com seus itens
+        $checklists = CheckList::where('user_id', $userId)->get();
+
+        // Verifica se o usuário possui checklists
+        if ($checklists->isEmpty()) {
+            return response()->json(['message' => 'Nenhum checklist encontrado para este usuário'], 404);
+        }
+
+        // Retorna os checklists em formato JSON
+        return response()->json([
+            'data' => $checklists
+        ], 200);
     }
 }

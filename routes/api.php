@@ -39,7 +39,7 @@ Route::resource('checklist', CheckListController::class);
 Route::get('checklist-last', [ChecklistController::class, 'getLastChecklist']);
 Route::get('checklist-resume', [ChecklistController::class, 'resumeLastChecklist']);
 Route::put('/checklist/{checklist}/item/{item}', [CheckListController::class, 'updateItemStatus']);
-// Route::get('/user/checklists', [CheckListController::class, 'getUserChecklists']);
+Route::get('checklists-user', [CheckListController::class, 'getUserChecklists']);
 Route::middleware('auth')->get('/user/checklists', [CheckListController::class, 'getUserChecklists']);
 
 
