@@ -176,33 +176,33 @@ class CheckListController extends Controller
     // }
 
     public function update(Request $request, $id)
-{
-    // Encontrar a checklist pelo ID
-    $checklist = Checklist::find($id);
+    {
+        // Encontrar a checklist pelo ID
+        $checklist = Checklist::find($id);
 
-    // Verificar se a checklist existe
-    if (!$checklist) {
+        // Verificar se a checklist existe
+        if (!$checklist) {
+            return response()->json([
+                'message' => 'Checklist não encontrada.'
+            ], 404);
+        }
+
+        // Validar os dados recebidos
+        $validatedData = $request->validate([
+            'user_id' => 'sometimes|integer|exists:users,id',
+            'carro_id' => 'sometimes|integer|exists:carros,id',
+            'status' => 'sometimes|boolean',
+        ]);
+
+        // Atualizar os campos com os dados validados
+        $checklist->update($validatedData);
+
+        // Retornar a checklist atualizada
         return response()->json([
-            'message' => 'Checklist não encontrada.'
-        ], 404);
+            'message' => 'Checklist atualizada com sucesso.',
+            'data' => $checklist
+        ], 200);
     }
-
-    // Validar os dados recebidos
-    $validatedData = $request->validate([
-        'user_id' => 'sometimes|integer|exists:users,id',
-        'carro_id' => 'sometimes|integer|exists:carros,id',
-        'status' => 'sometimes|boolean',
-    ]);
-
-    // Atualizar os campos com os dados validados
-    $checklist->update($validatedData);
-
-    // Retornar a checklist atualizada
-    return response()->json([
-        'message' => 'Checklist atualizada com sucesso.',
-        'data' => $checklist
-    ], 200);
-}
 
     public function updateItemStatus(Request $request, $checkListId, $itemId)
     {
@@ -241,16 +241,6 @@ class CheckListController extends Controller
         //
     }
 
-    // public function getUserChecklists()
-    // {
-    //     $user = Auth::user();
-    //     if (!$user) {
-    //         return response()->json(['error' => 'User not authenticated'], 401);
-    //     }
-
-    //     $checklists = $user->checklists;
-    //     return response()->json($checklists);
-    // }
     public function getUserChecklists()
     {
         // Obtém o ID do usuário autenticado
@@ -261,9 +251,11 @@ class CheckListController extends Controller
             return response()->json(['message' => 'Usuário não autenticado'], 401);
         }
 
-        // Recupera todos os checklists do usuário autenticado com seus itens
-        $checklists = CheckList::where('user_id', $userId)->get();
-
+        // Recupera todos os checklists do usuário autenticado com seus itens e os relacionamentos
+        $checklists = CheckList::with('carro')
+            ->where('user_id', $userId)
+            ->get();
+        
         // Verifica se o usuário possui checklists
         if ($checklists->isEmpty()) {
             return response()->json(['message' => 'Nenhum checklist encontrado para este usuário'], 404);
