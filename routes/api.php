@@ -8,6 +8,7 @@ use App\Http\Controllers\CarroController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\CheckListController;
 use App\Http\Controllers\CarroItemController;
+use App\Http\Controllers\ComentarioController;
 
 
 
@@ -50,6 +51,11 @@ Route::get('carro/{carro}', [CarroController::class, 'indexCar']);
 Route::resource('carro_itens', CarroItemController::class);
 // Route::get('/carro_itens/busca', [CarroItemController::class, 'buscarPorCarroEItem']);
 Route::get('/carro_itens/{carro_id}/{item_id}', [CarroItemController::class, 'buscarPorCarroEItem']);
+
+Route::get('carros/{carro}/comentarios', [ComentarioController::class, 'index']);
+Route::post('carros/{carro}/comentarios', [ComentarioController::class, 'store']);
+Route::put('carros/{carro}/comentarios/{comentario}', [ComentarioController::class, 'update']);
+Route::delete('carros/{carro}/comentarios/{comentario}', [ComentarioController::class, 'destroy']);
 
 
 

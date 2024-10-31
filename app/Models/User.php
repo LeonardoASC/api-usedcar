@@ -68,9 +68,14 @@ class User extends Authenticatable implements JWTSubject
         return $this->hasMany(PhysicalEvaluation::class);
     }
 
-        public function checklists()
+    public function checklists()
     {
         return $this->hasMany(Checklist::class);
     }
-    
+
+    public function comentarios()
+    {
+        return $this->hasMany(Comentario::class);
+    }
+
 }

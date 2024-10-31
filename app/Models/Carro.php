@@ -31,5 +31,10 @@ class Carro extends Model
                     ->withTimestamps();
     }
 
+    public function comentarios()
+    {
+        return $this->hasMany(Comentario::class, 'carro_id');
+    }
+
 
 }
