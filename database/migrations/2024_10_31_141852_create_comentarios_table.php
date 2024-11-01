@@ -16,6 +16,8 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('carro_id')->constrained()->onDelete('cascade');
             $table->text('comentario');
+            $table->integer('gostei');
+
             $table->timestamps();
         });
     }

@@ -140,41 +140,6 @@ class CheckListController extends Controller
         //
     }
 
-    // public function update(Request $request, $id)
-    // {
-    //     $checklist = CheckList::findOrFail($id);
-    //     $checklist->update($validated);
-
-    //     return response()->json($checklist);
-    // }
-
-    // public function update(Request $request, $id)
-    // {
-    //     // Encontrar a checklist pelo ID
-    //     $checklist = Checklist::find($id);
-
-    //     // Verificar se a checklist existe
-    //     if (!$checklist) {
-    //         return response()->json([
-    //             'message' => 'Checklist não encontrada.'
-    //         ], Response::HTTP_NOT_FOUND);
-    //     }
-
-    //     // Atualizar os campos permitidos
-    //     $checklist->user_id = $request->input('user_id', $checklist->user_id);
-    //     $checklist->carro_id = $request->input('carro_id', $checklist->carro_id);
-    //     $checklist->status = $request->input('status', $checklist->status);
-
-    //     // Salvar as alterações no banco de dados
-    //     $checklist->save();
-
-    //     // Retornar a checklist atualizada
-    //     return response()->json([
-    //         'message' => 'Checklist atualizada com sucesso.',
-    //         'data' => $checklist
-    //     ], 201);
-    // }
-
     public function update(Request $request, $id)
     {
         // Encontrar a checklist pelo ID
@@ -255,7 +220,7 @@ class CheckListController extends Controller
         $checklists = CheckList::with('carro')
             ->where('user_id', $userId)
             ->get();
-        
+
         // Verifica se o usuário possui checklists
         if ($checklists->isEmpty()) {
             return response()->json(['message' => 'Nenhum checklist encontrado para este usuário'], 404);
