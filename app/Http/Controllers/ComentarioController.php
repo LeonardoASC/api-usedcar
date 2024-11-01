@@ -22,14 +22,17 @@ class ComentarioController extends Controller
         $comentario->carro_id = $request->carro_id;
         $comentario->comentario = $request->comentario;
         $comentario->save();
+
+        // Carregar o relacionamento com o usuário
+        $comentario->load('user');
+
         return response()->json($comentario);
     }
+
     //metodo para atualizar um comentario
     public function update(Request $request, $id)
     {
         $comentario = Comentario::find($id);
-        // $comentario->user_id = $request->user_id;
-        // $comentario->carro_id = $request->carro_id;
         $comentario->comentario = $request->comentario;
         $comentario->save();
         return response()->json($comentario);
